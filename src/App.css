@@ -182,3 +182,67 @@
     border-right-color: var(--border);
   }
 }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #121212;
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  background: #1e1e1e;
+}
+
+.navbar a {
+  margin-left: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Center login */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+/* Card */
+.card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 250px;
+}
+
+/* Inputs */
+input {
+  padding: 8px;
+  border-radius: 5px;
+  border: none;
+}
+
+/* Button */
+button {
+  padding: 10px;
+  background: #4caf50;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+/* Page spacing */
+.page {
+  padding: 20px;
+}

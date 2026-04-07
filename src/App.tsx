@@ -1,16 +1,21 @@
 import './App.css';
-import { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Routes, Route } from "react-router-dom";
+import NavigationBar from "./components/NavigationBar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <h1>Count: {count}</h1>
-      <Button onClick={() => setCount(count + 1)}>Increment Count</Button>
+      <NavigationBar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
