@@ -1,0 +1,9 @@
+.user-icon-container {
+    background-color: grey;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
