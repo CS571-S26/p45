@@ -1,10 +1,11 @@
-const Dashboard = () => {
+import Dashboard from "../components/Dashboard/Dashboard";
+
+const DashboardPage = () => {
   return (
     <div className="page">
-      <h2>Dashboard</h2>
-      <p>Your fitness data will go here.</p>
+      <Dashboard />
     </div>
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

@@ -1,0 +1,62 @@
+.card-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
+.calander-card {
+    width: 50%;
+    height: auto; /* let height adjust automatically */
+    padding: 1rem;
+}
+
+.month-text {
+    width: 10rem;
+    text-align: center;
+    font-size: 1.2rem; /* slightly bigger text */
+    font-weight: bold;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns for days of the week */
+    gap: 0.5rem;
+    text-align: center;
+    font-size: 1rem; /* make day numbers bigger */
+    margin-top: 1rem;
+}
+
+.day-cell {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    padding:  0;
+    transition: background 0.2s;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.day-cell:hover {
+    background-color: #554d4d;
+    cursor: pointer;
+}
+
+.no-select {
+  user-select: none;       /* Standard */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+}
+
+.day-cell.selected {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
