@@ -48,6 +48,8 @@ const UserGoalsPage = () => {
                     value={goalWeight}
                     onChange={(e) => setGoalWeight(parseFloat(e.target.value) || 0)}
                 />
+
+                <button type="submit">Submit</button>
             </form>
         </div>
 
