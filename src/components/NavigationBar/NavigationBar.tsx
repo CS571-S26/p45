@@ -22,6 +22,7 @@ const NavigationBar = () => {
         <Link to="/">Home</Link>
         <Link to="/login">Login</Link>
         <Link to="/dashboard">Dashboard</Link>
+        <Link to="/goals">Goals</Link>
         <UserIcon initial={initial}/>
       </div>
     </nav>

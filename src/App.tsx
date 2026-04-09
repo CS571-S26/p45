@@ -4,6 +4,7 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Home from "./pages/HomePage";
 import Login from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
+import UserGoalsPage from './pages/UserGoalsPage';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/goals" element={<UserGoalsPage/>}/>
       </Routes>
     </>
   );
