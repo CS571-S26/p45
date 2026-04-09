@@ -1,27 +1,38 @@
-// import { UserGoalsCard } from "../components/Dashboard/UserGoalsCard";
+import { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-
+import { UserGoalsContext } from "../contexts/UserGoalsContext";
 
 const UserGoalsPage = () => {
     const [workout, setWorkout] = useState("");
     const [currentWeight, setCurrentWeight] = useState(0);
     const [goalWeight, setGoalWeight] = useState(0);
     const navigate = useNavigate();
+    const context = useContext(UserGoalsContext);
+
+    if (!context) {
+        throw new Error("UserGoalsPage must be used within UserGoalsProvider");
+    }
+
+    const { addGoal } = context;
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
         if (workout && currentWeight && goalWeight) {
-            setWorkout(workout);
-            setCurrentWeight(currentWeight);
-            setGoalWeight(goalWeight);
+            addGoal({
+                label: workout,
+                current: currentWeight,
+                goal: goalWeight,
+            });
+            setWorkout("");
+            setCurrentWeight(0);
+            setGoalWeight(0);
             navigate("/dashboard");
         } else {
             alert("Enter valid weights");
         }
-  };
+    };
 
     return (
         <div>
