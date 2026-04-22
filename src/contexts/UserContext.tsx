@@ -13,7 +13,16 @@ interface UserProviderProps {
 }
 
 export default function UserProvider({ children }: UserProviderProps) {
-  const [username, setUsername] = useState<string | null>(null);
+  const [username, setUsername] = useState<string | null>(() => {
+    const saved = localStorage.getItem("username");
+    if (!saved) return null;
+
+    try {
+      return JSON.parse(saved);
+    } catch (error) {
+      return saved;
+    }
+  });
 
   return (
     <UserContext.Provider value={{ username, setUsername }}>

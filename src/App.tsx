@@ -5,8 +5,27 @@ import Login from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import UserGoalsPage from './pages/UserGoalsPage';
 import { UserGoalsProvider } from './contexts/UserGoalsContext';
+import { UserContext } from './contexts/UserContext';
+import { useContext } from "react";
 
 const App = () => {
+  const context = useContext(UserContext);
+
+  if (!context) {
+    return null;
+  }
+
+  const { username } = context;
+
+  if (!username) {
+    return (
+      <>
+        <h1>Welcome to Tren Zone</h1>
+        <Login />
+      </>
+    )
+  }
+
   return (
     <>
       <UserGoalsProvider>

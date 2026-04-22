@@ -3,3 +3,13 @@
     gap: 1rem;
     align-items: center;
 }
+
+.btn-danger {
+    background-color: red;
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.btn-danger:hover {
+    background-color: rgba(255, 0, 0, 0.8);
+}

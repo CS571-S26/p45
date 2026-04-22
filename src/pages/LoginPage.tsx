@@ -20,7 +20,8 @@ const Login = () => {
 
     if (login && password) {
       setUsername(login);
-      navigate("/dashboard");
+      localStorage.setItem("username", JSON.stringify(login));
+      navigate("/");
     } else {
       alert("Enter valid credentials");
     }
