@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import UserIcon from "../UserIcon/UserIcon";
 import "./NavigationBar.css";
 import { Button } from "react-bootstrap";
