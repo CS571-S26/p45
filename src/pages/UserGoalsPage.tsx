@@ -5,8 +5,8 @@ import { UserGoalsContext } from "../contexts/UserGoalsContext";
 
 const UserGoalsPage = () => {
     const [workout, setWorkout] = useState("");
-    const [currentWeight, setCurrentWeight] = useState(0);
-    const [goalWeight, setGoalWeight] = useState(0);
+    const [currentWeight, setCurrentWeight] = useState("0");
+    const [goalWeight, setGoalWeight] = useState("0");
     const navigate = useNavigate();
     const context = useContext(UserGoalsContext);
 
@@ -19,16 +19,17 @@ const UserGoalsPage = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (workout && currentWeight && goalWeight) {
+        if (workout && currentWeight !== "" && goalWeight !== "") {
             addGoal({
                 label: workout,
-                current: currentWeight,
-                goal: goalWeight,
+                current: parseFloat(currentWeight),
+                goal: parseFloat(goalWeight),
             });
+
             setWorkout("");
-            setCurrentWeight(0);
-            setGoalWeight(0);
-            navigate("/dashboard");
+            setCurrentWeight("0");
+            setGoalWeight("0");
+            navigate("/");
         } else {
             alert("Enter valid weights");
         }
@@ -49,23 +50,23 @@ const UserGoalsPage = () => {
                 <h3>Current Weight</h3>
                 <input
                     type="number"
+                    min="0"
                     value={currentWeight}
-                    onChange={(e) => setCurrentWeight(parseFloat(e.target.value) || 0)}
+                    onChange={(e) => setCurrentWeight(e.target.value)}
                 />
 
                 <h3>Goal Weight</h3>
                 <input
                     type="number"
+                    min="0"
                     value={goalWeight}
-                    onChange={(e) => setGoalWeight(parseFloat(e.target.value) || 0)}
+                    onChange={(e) => setGoalWeight(e.target.value)}
                 />
 
                 <button type="submit">Submit</button>
             </form>
         </div>
-
     );
-
 };
 
 export default UserGoalsPage;
