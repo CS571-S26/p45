@@ -19,10 +19,9 @@ const NavigationBar = () => {
     <nav className="navbar">
       <h2>TrenZone</h2>
       <div className="navbar-contents">
-        <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/dashboard">Dashboard</Link>
+        <Link to="/">Dashboard</Link>
         <Link to="/goals">Goals</Link>
+        <Link to="/login">Login</Link>
         <UserIcon initial={initial}/>
       </div>
     </nav>
