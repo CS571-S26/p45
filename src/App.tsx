@@ -4,7 +4,9 @@ import NavigationBar from "./components/NavigationBar/NavigationBar";
 import Login from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import UserGoalsPage from './pages/UserGoalsPage';
+import ProfilePage from "./pages/ProfilePage";
 import { UserGoalsProvider } from './contexts/UserGoalsContext';
+import { ProfileProvider } from "./contexts/ProfileContext";
 import { UserContext } from './contexts/UserContext';
 import { useContext } from "react";
 
@@ -29,12 +31,15 @@ const App = () => {
   return (
     <>
       <UserGoalsProvider>
-        <NavigationBar />
-        <Routes>
-          <Route path="/" element={<DashboardPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/goals" element={<UserGoalsPage/>}/>
-        </Routes>
+        <ProfileProvider>
+          <NavigationBar />
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/goals" element={<UserGoalsPage/>}/>
+            <Route path="/profile" element={<ProfilePage />} />
+          </Routes>
+        </ProfileProvider>
       </UserGoalsProvider>
     </>
   );

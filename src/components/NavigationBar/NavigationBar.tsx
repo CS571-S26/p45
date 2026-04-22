@@ -30,6 +30,7 @@ const NavigationBar = () => {
         <div className="navbar-contents">
           <Link to="/">Dashboard</Link>
           <Link to="/goals">Goals</Link>
+          <Link to="/profile">Profile</Link>
           <Button className="btn-danger" onClick={handleLogout}>Logout</Button>
           <UserIcon initial={initial}/>
         </div>
