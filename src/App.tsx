@@ -7,6 +7,7 @@ import UserGoalsPage from './pages/UserGoalsPage';
 import ProfilePage from "./pages/ProfilePage";
 import { UserGoalsProvider } from './contexts/UserGoalsContext';
 import { ProfileProvider } from "./contexts/ProfileContext";
+import { WorkoutsProvider } from "./contexts/WorkoutsContext";
 import { UserContext } from './contexts/UserContext';
 import { useContext } from "react";
 
@@ -32,13 +33,15 @@ const App = () => {
     <>
       <UserGoalsProvider>
         <ProfileProvider>
-          <NavigationBar />
-          <Routes>
-            <Route path="/" element={<DashboardPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/goals" element={<UserGoalsPage/>}/>
-            <Route path="/profile" element={<ProfilePage />} />
-          </Routes>
+          <WorkoutsProvider>
+            <NavigationBar />
+            <Routes>
+              <Route path="/" element={<DashboardPage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/goals" element={<UserGoalsPage/>}/>
+              <Route path="/profile" element={<ProfilePage />} />
+            </Routes>
+          </WorkoutsProvider>
         </ProfileProvider>
       </UserGoalsProvider>
     </>
