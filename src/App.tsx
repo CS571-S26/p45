@@ -10,6 +10,7 @@ import { ProfileProvider } from "./contexts/ProfileContext";
 import { WorkoutsProvider } from "./contexts/WorkoutsContext";
 import { UserContext } from './contexts/UserContext';
 import { useContext } from "react";
+import LogWorkoutPage from './pages/LogWorkoutPage';
 
 const App = () => {
   const context = useContext(UserContext);
@@ -40,6 +41,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/goals" element={<UserGoalsPage/>}/>
               <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/log-workout" element={<LogWorkoutPage />} />
             </Routes>
           </WorkoutsProvider>
         </ProfileProvider>

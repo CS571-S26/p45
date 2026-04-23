@@ -178,3 +178,8 @@ hr {
 .btn-remove:hover {
     background-color: rgb(36, 35, 35);
 }
+
+.btn-primary {
+    font-size: 1rem;
+    border-radius: 1rem;
+}

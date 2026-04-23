@@ -1,20 +1,14 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Card, CardHeader, CardBody, CardFooter } from "react-bootstrap";
-import { useState/*, useContext*/ } from "react";
-//import { WorkoutsContext } from "../../contexts/WorkoutsContext";
+import { Card, CardHeader, CardBody, CardFooter, Button } from "react-bootstrap";
+import { useState } from "react";
 import "./Dashboard.css";
+import { useNavigate } from "react-router-dom";
 
 const Calendar = () => {
-    // const context = useContext(WorkoutsContext);
-        
-    //     if (!context) {
-    //         throw new Error("UserGoalsCard must be used within UserGoalsProvider");
-    //     }
-        
-    //     const { addExercise, getWorkoutByDate } = context;
-
     const today = new Date();
+    const nav = useNavigate();
 
+    const [showAddWorkoutButton, setShowAddWorkoutButton] = useState(false);
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDay, setSelectedDay] = useState<number | null>(null);
     const workoutTypes = [
@@ -77,13 +71,19 @@ const Calendar = () => {
                                     ${isToday ? "today" : ""} 
                                     ${isSelected ? "selected" : ""}
                                 `}
-                                onClick={() => setSelectedDay(day)}
+                                onClick={() => {
+                                    setSelectedDay(day);
+                                    setShowAddWorkoutButton(true);
+                                }}
                             >
                                 {day}
                             </div>
                         );
                     })}
                 </div>
+                {showAddWorkoutButton && (
+                    <Button className="btn-primary" onClick={() => nav("log-workout")}>Log Workout</Button>
+                )}
             </CardBody>
             <hr />
             <CardFooter className="calendar-footer">
