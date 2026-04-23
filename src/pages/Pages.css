@@ -1,0 +1,9 @@
+.add-goal {
+    margin: auto;
+}
+
+.page-container {
+    display: flex;
+    height: 100%;
+    align-items: center;
+}

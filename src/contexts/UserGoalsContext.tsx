@@ -17,10 +17,14 @@ interface UserGoalsContextType {
 export const UserGoalsContext = createContext<UserGoalsContextType | undefined>(undefined);
 
 export const UserGoalsProvider = ({ children }: { children: ReactNode }) => {
-    const [userGoals, setUserGoals] = useState<Goal[]>([]);
+    const [userGoals, setUserGoals] = useState<Goal[]>(() => {
+        const saved = localStorage.getItem("userGoals");
+        return saved ? JSON.parse(saved) : [];
+    });
 
     const addGoal = (goal: Goal) => {
         setUserGoals([...userGoals, goal]);
+        localStorage.setItem("userGoals", JSON.stringify([...userGoals, goal]));
     };
 
     const updateGoal = (index: number, updatedGoal: Goal) => {
@@ -30,7 +34,9 @@ export const UserGoalsProvider = ({ children }: { children: ReactNode }) => {
     };
 
     const deleteGoal = (index: number) => {
-        setUserGoals(userGoals.filter((_, i) => i !== index));
+        const filteredGoals = userGoals.filter((_, i) => i !== index);
+        setUserGoals(filteredGoals);
+        localStorage.setItem("userGoals", JSON.stringify(filteredGoals));
     };
 
     return (

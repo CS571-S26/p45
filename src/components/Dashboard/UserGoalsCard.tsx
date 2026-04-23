@@ -1,4 +1,4 @@
-import { Card, CardHeader, CardBody } from "react-bootstrap";
+import { Card, CardHeader, CardBody, Button } from "react-bootstrap";
 import { useContext } from "react";
 import { UserGoalsContext } from "../../contexts/UserGoalsContext";
 import "./Dashboard.css";
@@ -10,7 +10,7 @@ const UserGoalsCard = () => {
         throw new Error("UserGoalsCard must be used within UserGoalsProvider");
     }
     
-    const { userGoals } = context;
+    const { userGoals, deleteGoal } = context;
 
     return (
         <>
@@ -38,6 +38,7 @@ const UserGoalsCard = () => {
                                             style={{ width: `${progress}%` }}
                                         ></div>
                                     </div>
+                                    <Button className="btn-remove" onClick={() => deleteGoal(index)}>Remove Goal</Button>
                                 </div>
                             );
                         })

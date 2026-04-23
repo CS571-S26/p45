@@ -1,5 +1,5 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Card, CardHeader, CardBody } from "react-bootstrap";
+import { Card, CardHeader, CardBody, CardFooter } from "react-bootstrap";
 import { useState} from "react";
 import "./Dashboard.css";
 
@@ -8,6 +8,11 @@ const Calendar = () => {
 
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDay, setSelectedDay] = useState<number | null>(today.getDate());
+    const workoutTypes = [
+                        { label: "Strength", color: "#4CAF50" },
+                        { label: "Cardio", color: "#FF9800" },
+                        { label: "Flexibility", color: "#2196F3" }
+                    ];
 
     const changeMonth = (offset: number) => {
         const newDate = new Date(currentDate);
@@ -71,6 +76,20 @@ const Calendar = () => {
                     })}
                 </div>
             </CardBody>
+            <hr />
+            <CardFooter className="calendar-footer">
+                <div className="legend-container">
+                    {workoutTypes.map((item, index) => (
+                        <div key={index} className="legend-item">
+                            <div 
+                                className="status-circle" 
+                                style={{ backgroundColor: item.color }}
+                            ></div>
+                            <p className="legend-label">{item.label}</p>
+                        </div>
+                    ))}
+                </div>
+            </CardFooter>
         </Card>
     );
 };
