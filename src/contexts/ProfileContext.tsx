@@ -1,4 +1,4 @@
-import { createContext, useContext, useState} from "react";
+import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 
 export interface ProfileData {
@@ -22,23 +22,22 @@ const defaultProfile: ProfileData = {
 
 const ProfileContext = createContext<ProfileContextType | undefined>(undefined);
 
-export const ProfileProvider = ({ children }: { children: ReactNode }) => {
+interface ProfileProviderProps {
+  children: ReactNode;
+  username: string;
+}
+
+export const ProfileProvider = ({ children, username }: ProfileProviderProps) => {
+  const storageKey = `${username}:profile`;
+
   const [profile, setProfileState] = useState<ProfileData>(() => {
-    const username = localStorage.getItem("username");
-    if (!username) {
-        return defaultProfile;
-    }
-    const stored = localStorage.getItem(JSON.parse(username));
+    const stored = localStorage.getItem(storageKey);
     return stored ? JSON.parse(stored) : defaultProfile;
   });
 
   const setProfile = (data: ProfileData) => {
-    const username = localStorage.getItem("username");
-    if (!username) return;
-
-    const key = JSON.parse(username);
     setProfileState(data);
-    localStorage.setItem(key, JSON.stringify(data));
+    localStorage.setItem(storageKey, JSON.stringify(data));
   };
 
   return (

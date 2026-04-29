@@ -1,7 +1,6 @@
-import { useContext } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserGoalsContext } from "../contexts/UserGoalsContext";
+import { useUserGoals } from "../contexts/UserGoalsContext";
 import "./Pages.css";
 
 const UserGoalsPage = () => {
@@ -9,45 +8,39 @@ const UserGoalsPage = () => {
     const [currentWeight, setCurrentWeight] = useState("");
     const [goalWeight, setGoalWeight] = useState("");
     const navigate = useNavigate();
-    const context = useContext(UserGoalsContext);
-
-    if (!context) {
-        throw new Error("UserGoalsPage must be used within UserGoalsProvider");
-    }
-
-    const { addGoal } = context;
+    const { addGoal } = useUserGoals();
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (workout && currentWeight !== "" && goalWeight !== "" && goalWeight > currentWeight) {
-            addGoal({
-                label: workout,
-                current: parseFloat(currentWeight),
-                goal: parseFloat(goalWeight),
-            });
+        const current = parseFloat(currentWeight);
+        const goal = parseFloat(goalWeight);
 
-            setWorkout("");
-            setCurrentWeight("");
-            setGoalWeight("");
-            navigate("/");
+        if (!workout) {
+            alert("Enter a valid exercise name");
+            return;
         }
-        else if(parseFloat(goalWeight) <= 0 || parseFloat(currentWeight) <= 0) {
+        if (isNaN(current) || current <= 0 || isNaN(goal) || goal <= 0) {
             alert("Weights must be positive");
+            return;
         }
-        else if (goalWeight < currentWeight) {
+        if (goal <= current) {
             alert("Goal weight must be greater than current weight");
-        } 
-        else {
-            alert("Enter valid weights and exercise");
+            return;
         }
+
+        addGoal({ label: workout, current, goal });
+        setWorkout("");
+        setCurrentWeight("");
+        setGoalWeight("");
+        navigate("/");
     };
 
     return (
         <div className="page-container">
             <form className="add-goal card" onSubmit={handleSubmit}>
                 <h2>Input Goals</h2>
-                
+
                 <h3>Exercise</h3>
                 <input
                     type="text"

@@ -1,9 +1,196 @@
 .add-goal {
-    margin: auto;
+    margin: 0;
 }
 
+/* Page layout */
 .page-container {
     display: flex;
-    height: 100%;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+    box-sizing: border-box;
+}
+
+/* Constrain width */
+.log-workout-content {
+    width: 100%;
+    max-width: 520px;
+}
+
+/* Back button */
+.back-btn {
+    align-self: flex-start;
+    background: none;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: inherit;
+    margin-bottom: 2rem;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #888;
+}
+
+/* Header */
+.log-workout-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.log-workout-date {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.log-workout-subtitle {
+    margin: 0;
+    color: #888;
+    font-size: 0.95rem;
+}
+
+/* Form card */
+.log-workout-form-card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 1.5rem auto;
+}
+
+/* Form */
+.log-workout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+/* Row (weight + reps) */
+.log-workout-form-row {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.log-workout-form-row .log-workout-field {
+    flex: 1;
+}
+
+/* Fields */
+.log-workout-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.log-workout-field label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Inputs (CRITICAL FIX for overflow) */
+.log-workout-field input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: transparent;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* Button */
+.log-workout-add-btn {
+    padding: 0.7rem 1rem;
+    background: #e63a2e;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.15s;
+    width: 100%;
+    margin-top: 0.4rem;
+}
+
+.log-workout-add-btn:hover {
+    background: #c42f24;
+}
+
+/* Exercise list */
+.log-workout-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.log-workout-exercise-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+}
+
+.log-workout-exercise-info {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+
+.log-workout-exercise-index {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #666;
+    min-width: 24px;
+}
+
+.log-workout-exercise-name {
+    margin: 0 0 0.15rem 0;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.log-workout-exercise-detail {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.log-workout-volume {
+    color: #666;
+}
+
+/* Delete button */
+.log-workout-delete-btn {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.15s, background 0.15s;
+}
+
+.log-workout-delete-btn:hover {
+    color: #e63a2e;
+    background: rgba(230, 58, 46, 0.1);
+}
+
+/* Empty state */
+.log-workout-empty {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    color: #666;
+    font-size: 0.95rem;
 }
