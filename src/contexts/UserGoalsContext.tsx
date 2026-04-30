@@ -13,7 +13,7 @@ interface Goal {
 interface UserGoalsContextType {
     userGoals: Goal[];
     addGoal: (goal: Goal) => void;
-    updateGoal: (index: number, updatedGoal: Goal) => void;
+    updateGoal: (index: number, newCurrent: number) => void;
     deleteGoal: (index: number) => void;
     /** Call this after logging an exercise — automatically bumps matching goal's
      *  `current` value if the new weight beats the existing personal best. */
@@ -44,9 +44,9 @@ export const UserGoalsProvider = ({ children, username }: UserGoalsProviderProps
         persist([...userGoals, goal]);
     };
 
-    const updateGoal = (index: number, updatedGoal: Goal) => {
+    const updateGoal = (index: number, newCurrent: number) => {
         const updated = [...userGoals];
-        updated[index] = updatedGoal;
+        updated[index] = { ...updated[index], current: newCurrent };
         persist(updated);
     };
 

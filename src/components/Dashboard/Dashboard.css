@@ -449,3 +449,101 @@ hr {
     color: #666;
     font-size: 0.95rem;
 }
+
+/* Add these styles to your existing Dashboard.css file */
+ 
+.goal-numbers-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+ 
+.goal-numbers {
+    font-size: 0.85rem;
+    color: #666;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+ 
+.goal-numbers:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+}
+ 
+.edit-btn {
+    padding: 0.3rem 0.6rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+ 
+.edit-btn:hover {
+    background-color: #45a049;
+}
+ 
+.edit-container {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+ 
+.edit-input {
+    width: 60px;
+    padding: 0.3rem 0.5rem;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+ 
+.edit-input:focus {
+    outline: none;
+    border-color: #45a049;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.1);
+}
+ 
+.goal-divider {
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+ 
+.edit-save-btn,
+.edit-cancel-btn {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+ 
+.edit-save-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+ 
+.edit-save-btn:hover {
+    background-color: #45a049;
+}
+ 
+.edit-cancel-btn {
+    background-color: #f0f0f0;
+    color: #666;
+}
+ 
+.edit-cancel-btn:hover {
+    background-color: #e0e0e0;
+    color: #333;
+}
