@@ -26,6 +26,7 @@ const Calendar = () => {
     const [showLogButton, setShowLogButton] = useState(false);
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedDay, setSelectedDay] = useState<number | null>(null);
+    const [workoutActionText, setWorkoutActionText] = useState("Log Workout");
 
     const changeMonth = (offset: number) => {
         const newDate = new Date(currentDate);
@@ -53,6 +54,13 @@ const Calendar = () => {
     const handleDayClick = (day: number) => {
         setSelectedDay(day);
         setShowLogButton(true);
+        // Check if selected day is in the future
+        const selectedDate = new Date(year, month, day);
+        if (selectedDate > today) {
+            setWorkoutActionText("Plan Workout");
+        } else {
+            setWorkoutActionText("Log Workout");
+        }
     };
 
     const cells: (number | null)[] = [
@@ -135,7 +143,7 @@ const Calendar = () => {
                         className="btn-primary"
                         onClick={() => nav(`/log-workout?date=${toDateKey(selectedDay)}`)}
                     >
-                        Log Workout
+                        {workoutActionText}
                     </Button>
                 )}
             </CardBody>

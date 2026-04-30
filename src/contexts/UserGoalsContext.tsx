@@ -6,6 +6,8 @@ interface Goal {
     label: string;
     goal: number;
     current: number;
+    type: string;
+    notes: string | undefined;
 }
 
 interface UserGoalsContextType {

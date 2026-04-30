@@ -1,0 +1,196 @@
+/* UserGoalsPage Scoped Styles - Only for UserGoalsPage */
+
+.userGoalsContainer {
+    width: 100%;
+    max-width: 520px;
+}
+
+.userGoalsHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.userGoalsHeader h2 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.userGoalsSubtitle {
+    margin: 0;
+    color: #888;
+    font-size: 0.95rem;
+}
+
+/* Back button - matches Pages.css style */
+.userGoalsBackBtn {
+    align-self: flex-start;
+    background: none;
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 0.4rem 0.9rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: inherit;
+    margin-bottom: 2rem;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.userGoalsBackBtn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: #888;
+}
+
+/* Form card */
+.userGoalsFormCard {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 1.5rem auto;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Form */
+.userGoalsForm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+/* Fields */
+.userGoalsField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.userGoalsField label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Inputs - matches Pages.css style */
+.userGoalsField input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.6rem 0.7rem;
+    border-radius: 6px;
+    border: 1px solid #555;
+    background: transparent;
+    color: white;
+    font-size: 0.9rem;
+    transition: border-color 0.15s;
+}
+
+.userGoalsField input:focus {
+    outline: none;
+    border-color: var(--type-color, #4CAF50);
+}
+
+/* Form row (current weight + goal weight) */
+.userGoalsFormRow {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.userGoalsFormRow .userGoalsField {
+    flex: 1;
+}
+
+/* Type selector */
+.userGoalsTypeRow {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.userGoalsTypeBtn {
+    flex: 1;
+    min-width: 100px;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid #555;
+    border-radius: 6px;
+    background: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.15s;
+    color: inherit;
+}
+
+.userGoalsTypeBtn:hover {
+    border-color: var(--type-color, #4CAF50);
+    background: rgba(76, 175, 80, 0.08);
+}
+
+.userGoalsTypeBtn--active {
+    border-color: var(--type-color, #4CAF50);
+    background: var(--type-color, #4CAF50);
+    color: #fff;
+}
+
+.userGoalsTypeDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Submit button - matches log-workout-add-btn style */
+.userGoalsSubmitBtn {
+    padding: 0.7rem 1rem;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: background 0.15s;
+    width: 100%;
+    margin-top: 0.4rem;
+}
+
+.userGoalsSubmitBtn:hover {
+    background: #6aa36c;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .userGoalsContainer {
+        width: 100%;
+    }
+
+    .userGoalsHeader h2 {
+        font-size: 1.5rem;
+    }
+
+    .userGoalsTypeRow {
+        gap: 0.5rem;
+    }
+
+    .userGoalsTypeBtn {
+        min-width: 80px;
+        padding: 0.5rem 0.7rem;
+        font-size: 0.8rem;
+    }
+
+    .userGoalsFormRow {
+        flex-direction: column;
+        gap: 0.85rem;
+    }
+
+    .userGoalsField input {
+        padding: 0.7rem 0.8rem;
+        font-size: 1rem;
+    }
+}
